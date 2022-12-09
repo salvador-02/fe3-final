@@ -1,15 +1,17 @@
-import React from "react";
+import React from 'react'
+import { useContextGlobal } from './utils/global.context'
 
-
-const Form = () => {
-  //Aqui deberan implementar el form completo con sus validaciones
+const Footer = () => {
+  const {theme} = useContextGlobal();
+  console.log(theme.theme);
 
   return (
-    <div>
-      <form>
-      </form>
-    </div>
-  );
-};
+    <footer className='footer' id={theme.theme}>
+        <p>Powered by</p>
+        {theme.theme === "light" ? <img src="./images/DH.png" alt='DH-logo'/> : <img src="./images/DH2.png" alt='DH2-logo'/>}
+    </footer>
+  )
+}
 
-export default Form;
+
+export default Footer;
